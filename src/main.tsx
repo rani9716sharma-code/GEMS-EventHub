@@ -1,0 +1,17 @@
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
+import App from './App'
+import { AuthProvider } from './auth/AuthContext'
+import { ThemeProvider } from './theme/ThemeContext'
+import ErrorBoundary from './components/ErrorBoundary'
+import './styles/tokens.css'
+import './styles/base.css'
+import './styles/public.css'
+import './styles/portal.css'
+import './styles/portal-student.css'
+import './styles/portal-staff.css'
+import './styles/portal-admin.css'
+import { routerBase } from './lib/paths'
+
+ReactDOM.createRoot(document.getElementById('root')!).render(<React.StrictMode><ThemeProvider><ErrorBoundary><BrowserRouter basename={routerBase}><AuthProvider><App/></AuthProvider></BrowserRouter></ErrorBoundary></ThemeProvider></React.StrictMode>)

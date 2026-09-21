@@ -1,0 +1,41 @@
+{
+  "name": "gems-eventhub",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "dev:web": "vite",
+    "dev:api": "node --watch server/index.mjs",
+    "build": "vite build",
+    "check": "tsc --noEmit",
+    "preview": "vite preview",
+    "start:api": "node scripts/start.mjs",
+    "doctor": "node scripts/doctor.mjs",
+    "dev:windows": "node scripts/dev.mjs",
+    "start": "node scripts/start.mjs",
+    "test:api": "node --test tests/api.test.mjs tests/sheets.test.mjs tests/poster.test.mjs tests/sheets-api.test.mjs tests/cors.test.mjs",
+    "test:ui": "vitest run",
+    "test": "npm run test:api && npm run test:ui",
+    "pretest": "npm run check && npm run build"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "6.1.1",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "react-router-dom": "7.18.3",
+    "typescript": "7.0.2",
+    "vite": "8.2.2"
+  },
+  "devDependencies": {
+    "@testing-library/react": "16.3.3",
+    "@testing-library/user-event": "14.6.7",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.7",
+    "jsdom": "30.1.0",
+    "vitest": "5.0.1"
+  },
+  "engines": {
+    "node": ">=22.18.0"
+  }
+}

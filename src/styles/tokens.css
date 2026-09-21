@@ -1,0 +1,143 @@
+/* =====================================================================
+   GEMS EventHub — design tokens
+   Palette is taken from the GEMS Polytechnic College identity:
+   deep navy (institution), azure (logo globe) and gold (logo gear).
+   Every colour used anywhere in the app comes from this file, so light
+   and dark mode can never drift apart.
+   ===================================================================== */
+:root {
+  /* Type */
+  --font-body: 'Public Sans', 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  --font-display: 'Source Serif 4', 'Source Serif Pro', Georgia, Cambria, 'Times New Roman', serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* Scale */
+  --text-xs: 0.8125rem;   /* 13px – smallest text used anywhere */
+  --text-sm: 0.875rem;    /* 14px */
+  --text-md: 1rem;        /* 16px */
+  --text-lg: 1.125rem;
+  --text-xl: 1.375rem;
+  --text-2xl: 1.75rem;
+  --text-3xl: clamp(1.9rem, 1.3rem + 2.2vw, 2.75rem);
+
+  /* Shape */
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+
+  /* Layout */
+  --container: 1200px;
+  --sidebar-w: 268px;
+  --header-h: 72px;
+
+  /* Institution colours (fixed – identical in both themes) */
+  --navy-950: #061433;
+  --navy-900: #0b1f4a;
+  --navy-800: #12306b;
+  --navy-700: #1b4088;
+  --azure-600: #0a6fb1;
+  --azure-700: #085c93;
+  --azure-400: #4db2e8;
+  --gold-500: #e2a02d;
+  --gold-400: #f0b84a;
+  --gold-600: #c9871a;
+  --on-navy: #ffffff;
+  --on-navy-2: #c9d6f0;
+  --on-navy-3: #a9bce0;
+
+  /* ---------- Light theme ---------- */
+  --bg: #f3f6fb;
+  --surface: #ffffff;
+  --surface-2: #f7f9fd;
+  --surface-3: #eaf0f9;
+  --field: #ffffff;
+  --border: #d5deec;
+  --border-strong: #b3c1d8;
+  --text: #0e1b3d;
+  --text-2: #33425f;
+  --muted: #566581;
+  --placeholder: #66758f;
+
+  --accent: #0a6fb1;          /* solid button / active fill */
+  --accent-hover: #085c93;
+  --accent-text: #085c93;     /* accent used as text colour */
+  --accent-soft: #e4f1fa;
+  --accent-border: #b5d8ef;
+  --brand: #12306b;
+  --brand-soft: #e6ecf8;
+  --gold: #e2a02d;
+  --gold-soft: #fff3d9;
+
+  --success: #0b6b45;
+  --success-bg: #e2f5ec;
+  --success-border: #a9ddc3;
+  --warning: #7a4f00;
+  --warning-bg: #fff1d6;
+  --warning-border: #f0cf8a;
+  --danger: #b42318;
+  --danger-bg: #fde9e7;
+  --danger-border: #f4b8b1;
+  --info: #0a5e99;
+  --info-bg: #e3f0fb;
+  --info-border: #b5d8ef;
+
+  --focus: #0a6fb1;
+  --shadow-sm: 0 1px 2px rgba(11, 31, 74, 0.06);
+  --shadow: 0 1px 3px rgba(11, 31, 74, 0.08), 0 8px 24px rgba(11, 31, 74, 0.06);
+  --shadow-lg: 0 18px 48px rgba(11, 31, 74, 0.18);
+  --scrim: rgba(6, 20, 51, 0.55);
+
+  --header-bg: #ffffff;
+  --sidebar-bg: #0b1f4a;
+  --sidebar-hover: rgba(255, 255, 255, 0.08);
+  --sidebar-active: rgba(255, 255, 255, 0.14);
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  --bg: #081021;
+  --surface: #0f1a31;
+  --surface-2: #132140;
+  --surface-3: #1a2a4e;
+  --field: #0b1529;
+  --border: #263a63;
+  --border-strong: #3a5282;
+  --text: #eaf0fc;
+  --text-2: #c5d1ea;
+  --muted: #9db0d3;
+  --placeholder: #8aa0c6;
+
+  --accent: #1479b8;
+  --accent-hover: #1a8ad0;
+  --accent-text: #6cc0f0;
+  --accent-soft: #12304f;
+  --accent-border: #24507c;
+  --brand: #8db4f2;
+  --brand-soft: #16264a;
+  --gold: #f0b84a;
+  --gold-soft: #3a2c0c;
+
+  --success: #5fd6a1;
+  --success-bg: #10382b;
+  --success-border: #1f6a50;
+  --warning: #f2c36b;
+  --warning-bg: #3a2c0c;
+  --warning-border: #6b4f14;
+  --danger: #ff9c92;
+  --danger-bg: #3d1a1a;
+  --danger-border: #7a3030;
+  --info: #7cc4f5;
+  --info-bg: #12304f;
+  --info-border: #24507c;
+
+  --focus: #6cc0f0;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 18px 48px rgba(0, 0, 0, 0.6);
+  --scrim: rgba(2, 6, 16, 0.7);
+
+  --header-bg: #0b1529;
+  --sidebar-bg: #060d1d;
+  color-scheme: dark;
+}

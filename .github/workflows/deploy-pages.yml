@@ -1,0 +1,52 @@
+# Publishes the website (the React front end) to GitHub Pages every time you push to "main".
+# The backend/database is NOT hosted by GitHub: see GITHUB-PAGES.md for where to run it.
+name: Deploy website to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Build website
+        env:
+          # Repository variable EVENTHUB_API_URL = the https address of your backend, e.g. https://eventhub.example.ts.net
+          VITE_API_URL: ${{ vars.EVENTHUB_API_URL }}
+          # Project sites live at https://USER.github.io/REPO/ . For a USER.github.io repository or a custom domain set the variable EVENTHUB_BASE to /
+          VITE_BASE: ${{ vars.EVENTHUB_BASE || format('/{0}/', github.event.repository.name) }}
+        run: |
+          if [ -z "$VITE_API_URL" ]; then echo "::warning::EVENTHUB_API_URL is not set. The website will load but cannot reach a backend. See GITHUB-PAGES.md."; fi
+          npm run build
+          cp dist/index.html dist/404.html   # lets deep links such as /events or /student open the app
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
